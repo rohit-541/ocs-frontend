@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="login-container">
+        <h2>Login</h2>
+        <input type="text" id="login-username" placeholder="Username">
+        <input type="password" id="login-password" placeholder="Password">
+        <button onclick="login()">Login</button>
+    </div>
+
+        <!-- Loading Spinner -->
+    <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <div id="admin-dashboard" class="hidden">
+        <h2>Admin Dashboard</h2>
+        <button onclick="logout()">Logout</button>
+        <h3>Register New User</h3>
+        <input type="text" id="reg-username" placeholder="Username">
+        <input type="password" id="reg-password" placeholder="Password">
+        <input type="text" id="reg-name" placeholder="Full Name">
+        <select id="reg-role">
+            <option value="User">User</option>
+            <option value="Admin">Admin</option>
+        </select>
+        <button onclick="registerUser()">Register</button>
+
+        <h3>All Users</h3>
+        <table id="UserTable" class="">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Name</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody id="user-list">
+
+            </tbody>
+        </table>
+    </div>
+
+    <div id="user-profile" class="hidden">
+        <h2>User Profile</h2>
+        <button onclick="logout()">Logout</button>
+        <p><strong>Username:</strong> <span id="profile-username"></span></p>
+        <p><strong>Name:</strong> <span id="profile-name"></span></p>
+        <p><strong>Role:</strong> <span id="profile-role"></span></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
