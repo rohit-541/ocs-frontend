@@ -2,8 +2,13 @@ const API_URL = "http://localhost:3000";
 
 async function login() {
     showLoading();
-    let username = document.getElementById("login-username").value;
-    let password = document.getElementById("login-password").value;
+    let usernameEl = document.getElementById("login-username");
+    let passwordEl = document.getElementById("login-password");
+    let username = usernameEl.value;
+    let password = passwordEl.value;
+
+    usernameEl.value = "";
+    passwordEl.value = "";
 
     let response = await fetch(`${API_URL}/user`, {
         method: "POST",
@@ -15,7 +20,7 @@ async function login() {
     });
 
     let data = await response.json();
-
+    
     if (response.ok) {
         localStorage.setItem("loggedIn", true);
         localStorage.setItem("user", JSON.stringify(data.user));
